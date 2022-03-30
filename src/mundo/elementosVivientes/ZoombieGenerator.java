@@ -21,7 +21,4 @@ public class ZoombieGenerator {
     }
     return zombie;
   }
-  static Zombie export(){
-    return zombie;
-  }
 }

@@ -1,4 +1,4 @@
-package mundo;
+package mundo.armas;
 
 public abstract class ArmaDeFuego extends Arma implements ArmaConMunicion{
 
@@ -8,11 +8,11 @@ public abstract class ArmaDeFuego extends Arma implements ArmaConMunicion{
 	public static final String RECARGANDO = "recarga";
 
 	/**
-	 * valor numérico que representa el tiempo de bombeo o recarga
+	 * valor numï¿½rico que representa el tiempo de bombeo o recarga
 	 */
 	private short tBombeo;
 	/**
-	 * valor numérico que representa la cantidad de balas disponible
+	 * valor numï¿½rico que representa la cantidad de balas disponible
 	 */
 	private byte limBalas;
 	/**
@@ -20,7 +20,7 @@ public abstract class ArmaDeFuego extends Arma implements ArmaConMunicion{
 	 */
 	private boolean ensangrentada;
 	/**
-	 * valor numérico que representa la munición del arma
+	 * valor numï¿½rico que representa la municiï¿½n del arma
 	 */
 	private byte municion;
 
@@ -42,15 +42,16 @@ public abstract class ArmaDeFuego extends Arma implements ArmaConMunicion{
 		return descanso;
 	}
 	/**
-	 * cambia el límite de balas del arma en cuestión
+	 * cambia el lï¿½mite de balas del arma en cuestiï¿½n
 	 * @param limBalas
 	 */
-	protected void setLimBalas(byte limBalas) {
+	protected ArmaDeFuego setLimBalas(byte limBalas) {
 		this.limBalas = limBalas;
+    return this;
 	}
 
 	/**
-	 * obtiene el límite de balas del arma presente
+	 * obtiene el lï¿½mite de balas del arma presente
 	 * @return limBalas
 	 */
 	public byte getLimBalas() {
@@ -69,12 +70,13 @@ public abstract class ArmaDeFuego extends Arma implements ArmaConMunicion{
 	 * cambia el tiempo de recalentamiento o bombeo
 	 * @param tBombeo
 	 */
-	protected void settBombeo(short tBombeo) {
+	protected ArmaDeFuego settBombeo(short tBombeo) {
 		this.tBombeo = tBombeo;
+    return this;
 	}
 
 	/**
-	 * pregunta si el arma presente acaba de darle a algún enemigo
+	 * pregunta si el arma presente acaba de darle a algï¿½n enemigo
 	 * @return ensangrentada
 	 */
 	public boolean isEnsangrentada() {
@@ -85,15 +87,17 @@ public abstract class ArmaDeFuego extends Arma implements ArmaConMunicion{
 	 * cambia el estado ensangrentado 
 	 * @param ensangrentada
 	 */
-	public void setEnsangrentada(boolean ensangrentada) {
+	public ArmaDeFuego setEnsangrentada(boolean ensangrentada) {
 		this.ensangrentada = ensangrentada;
+    return this;
 	}
 	@Override
 	public byte getMunicion() {
 		return municion;
 	}
 	@Override
-	public void setMunicion(byte municion) {
+	public ArmaConMunicion setMunicion(byte municion) {
 		this.municion = municion;
+    return this;
 	}
 }

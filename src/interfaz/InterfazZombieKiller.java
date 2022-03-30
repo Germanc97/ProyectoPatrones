@@ -16,11 +16,11 @@ import hilo.HiloBoss;
 import hilo.HiloEnemigo;
 import hilo.HiloGeneradorDeZombies;
 import hilo.HiloSonido;
-import mundo.ArmaDeFuego;
 import mundo.NombreInvalidoException;
 import mundo.Puntaje;
-import mundo.Remington;
 import mundo.SurvivorCamp;
+import mundo.armas.ArmaDeFuego;
+import mundo.armas.Remington;
 import mundo.elementosVivientes.Boss;
 import mundo.elementosVivientes.Zombie;
 

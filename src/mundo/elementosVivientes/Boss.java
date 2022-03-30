@@ -1,9 +1,9 @@
 package mundo.elementosVivientes;
 
-import mundo.Granada;
-import mundo.Remington;
 import mundo.SeMueveEnZigzag;
 import mundo.SurvivorCamp;
+import mundo.armas.Granada;
+import mundo.armas.Remington;
 
 public class Boss extends Enemigo implements SeMueveEnZigzag {
 

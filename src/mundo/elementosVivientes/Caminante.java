@@ -1,8 +1,8 @@
 package mundo.elementosVivientes;
 
-import mundo.Remington;
 import mundo.SeMueveEnZigzag;
 import mundo.SurvivorCamp;
+import mundo.armas.Remington;
 
 public class Caminante extends Zombie implements SeMueveEnZigzag {
 

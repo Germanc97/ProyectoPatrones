@@ -14,6 +14,8 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+import mundo.armas.Arma;
+import mundo.armas.Cuchillo;
 import mundo.elementosVivientes.Boss;
 import mundo.elementosVivientes.Caminante;
 import mundo.elementosVivientes.Enemigo;

@@ -1,9 +1,9 @@
-package mundo;
+package mundo.armas;
 
 public class Remington extends ArmaDeFuego{
 	
 	/**
-	 * valor incambiable del daño que genera el arma
+	 * valor incambiable del daï¿½o que genera el arma
 	 */
 	public static final byte DANIO = 3;
 	/**
@@ -16,14 +16,11 @@ public class Remington extends ArmaDeFuego{
 	public static final short TIEMPO_CARGA = 1400;
 	public static final short RETROCESO = 400;
 	/**
-	 * Constructor del arma de fuego Remington con sus características
+	 * Constructor del arma de fuego Remington con sus caracterï¿½sticas
 	 */
 	public Remington () {
 		super();
-		settBombeo(RETROCESO);
-		setLimBalas((byte) 3);
+		settBombeo(RETROCESO).setLimBalas((byte) 3).setTiempoCarga(TIEMPO_CARGA).setDanio(DANIO);
 		setMunicion(getLimBalas());
-		setTiempoCarga(TIEMPO_CARGA);
-		setDanio(DANIO);
 	}
 }

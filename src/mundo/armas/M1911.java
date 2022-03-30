@@ -1,9 +1,9 @@
-package mundo;
+package mundo.armas;
 
 public class M1911 extends ArmaDeFuego{
 
 	/**
-	 * valor incambiable que representa el daño que causa la pistola M1911
+	 * valor incambiable que representa el daï¿½o que causa la pistola M1911
 	 */
 	public static final byte DANIO = 1;
 	/**
@@ -16,14 +16,11 @@ public class M1911 extends ArmaDeFuego{
 	public static final short RETROCESO = 100;
 	
 	/**
-	 * Constructor del arma M1911 con sus características
+	 * Constructor del arma M1911 con sus caracterï¿½sticas
 	 */
 	public M1911 () {
 		super();
-		settBombeo(RETROCESO);
-		setTiempoCarga(TIEMPO_CARGA);
-		setDanio(DANIO);
-		setLimBalas((byte) 8);
-		setMunicion(getLimBalas());
+		settBombeo(RETROCESO).setTiempoCarga(TIEMPO_CARGA).setDanio(DANIO);
+		setLimBalas((byte) 8).setMunicion(getLimBalas());
 	}
 }

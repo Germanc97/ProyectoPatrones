@@ -2,12 +2,12 @@ package mundo.elementosVivientes;
 
 import java.io.Serializable;
 
-import mundo.Arma;
-import mundo.ArmaDeFuego;
-import mundo.Cuchillo;
-import mundo.Granada;
-import mundo.M1911;
-import mundo.Remington;
+import mundo.armas.Arma;
+import mundo.armas.ArmaDeFuego;
+import mundo.armas.Cuchillo;
+import mundo.armas.Granada;
+import mundo.armas.M1911;
+import mundo.armas.Remington;
 
 public class Personaje implements SerViviente, Serializable {
 

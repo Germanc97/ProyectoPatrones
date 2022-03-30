@@ -1,6 +1,6 @@
 package mundo.elementosVivientes;
 
-import mundo.Remington;
+import mundo.armas.Remington;
 
 public class Rastrero extends Zombie {
 

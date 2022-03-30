@@ -1,4 +1,4 @@
-package mundo;
+package mundo.armas;
 
 import java.io.Serializable;
 
@@ -14,11 +14,11 @@ public abstract class Arma implements Serializable {
 	public static final String LISTA = "ready";
 
 	/**
-	 * valor numérico entero que muestra el tiempo de carga en milisegundos
+	 * valor numï¿½rico entero que muestra el tiempo de carga en milisegundos
 	 */
 	private short tiempoCarga;
 	/**
-	 * valor numérico entero que representa el daño causado por un arma
+	 * valor numï¿½rico entero que representa el daï¿½o causado por un arma
 	 */
 	private byte danio;
 	/**
@@ -44,20 +44,22 @@ public abstract class Arma implements Serializable {
 	 * cambia el tiempo que tarda en cargar el arma
 	 * @param tiempoCarga
 	 */
-	protected void setTiempoCarga(short tiempoCarga) {
+	protected Arma setTiempoCarga(short tiempoCarga) {
 		this.tiempoCarga = tiempoCarga;
+    return this;
 	}
 
 	/**
-	 * cambia el daño que causa el arma
+	 * cambia el daï¿½o que causa el arma
 	 * @param danio
 	 */
-	protected void setDanio(byte danio) {
+	protected Arma setDanio(byte danio) {
 		this.danio = danio;
+    return this;
 	}
 
 	/**
-	 * obtiene el daño que causa el arma
+	 * obtiene el daï¿½o que causa el arma
 	 * @return danio
 	 */
 	public byte getDanio() {
@@ -65,7 +67,7 @@ public abstract class Arma implements Serializable {
 	}
 
 	/**
-	 * método que calcula el tiempo de espera en el hilo del arma con respecto al estado
+	 * mï¿½todo que calcula el tiempo de espera en el hilo del arma con respecto al estado
 	 * @return tiempo de sleep en milisegundos
 	 */
 	public abstract long calcularDescanso();
@@ -79,11 +81,12 @@ public abstract class Arma implements Serializable {
 	}
 
 	/**
-	 * cambia el estado del arma en cuestión
+	 * cambia el estado del arma en cuestiï¿½n
 	 * @param estado
 	 */
-	public void setEstado(String estado) {
+	public Arma setEstado(String estado) {
 		this.estado = estado;
+    return this;
 	}
 
 }

@@ -1,9 +1,9 @@
-package mundo;
+package mundo.armas;
 
 public class Granada extends Arma  implements ArmaConMunicion{
 
 	/**
-	 * valor incambiable que representa el daño causado por la granada
+	 * valor incambiable que representa el daï¿½o causado por la granada
 	 */
 	public static final byte DANIO = 6;
 	/**
@@ -12,13 +12,12 @@ public class Granada extends Arma  implements ArmaConMunicion{
 	private byte cantidad;
 
 	/**
-	 * Constructor de la granada con su respectiva cantidad y daño
+	 * Constructor de la granada con su respectiva cantidad y daï¿½o
 	 */
 	public Granada() {
 		super();
 		setMunicion((byte) 2);
-		setTiempoCarga((short) 200);
-		setDanio(DANIO);
+		setTiempoCarga((short) 200).setDanio(DANIO);
 	}
 	
 	@Override
@@ -33,8 +32,9 @@ public class Granada extends Arma  implements ArmaConMunicion{
 		return cantidad;
 	}
 	@Override
-	public void setMunicion(byte municion) {
+	public ArmaConMunicion setMunicion(byte municion) {
 		cantidad = municion;
+    return this;
 	}
 
 }

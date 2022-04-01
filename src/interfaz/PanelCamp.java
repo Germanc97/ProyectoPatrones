@@ -17,6 +17,10 @@ import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.tools.Tool;
 
+import interfaz.strategy.AsesinatoExplosivo;
+import interfaz.strategy.Asesino;
+import interfaz.strategy.AsesinoBoom;
+import interfaz.strategy.Contexto;
 import mundo.*;
 import mundo.armasBuilder.Arma;
 import mundo.armasBuilder.ArmaDeFuego;
@@ -42,8 +46,9 @@ public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 	private ImageIcon[] imagenesCargadas;
 	private ArmaDeFuego armaEquipada;
 	private Boss chief;
-
+  private Contexto contexto;
 	public PanelCamp(InterfazZombieKiller inter) {
+    ;
 		setLayout(new BorderLayout());
 		Font tipo = new Font("Chiller", Font.PLAIN, 34);
 
@@ -311,16 +316,22 @@ public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 
 	@Override
 	public void mousePressed(MouseEvent arg0) {
+    
 		if (principal.getEstadoPartida() == SurvivorCamp.EN_CURSO) {
 			if (arg0.getButton() == MouseEvent.BUTTON1) {
 				int x = arg0.getX();
 				int y = arg0.getY();
+        contexto = new Contexto(new Asesino());
 				if (armaEquipada.getEstado().equals(Arma.LISTA) && armaEquipada.getMunicion() > 0) {
 					ultimoDisparo = arg0.getPoint();
-					principal.disparar(x, y);
+					//principal.disparar(x, y);
+          
+          contexto.ejecutar(true, principal,x,y);
 				} else if (y > Zombie.POS_ATAQUE && matador.getCuchillo().getEstado().equals(Arma.LISTA)) {
 					ultimoDisparo = arg0.getPoint();
-					principal.acuchillar(x, y);
+					//principal.acuchillar(x, y);
+
+          contexto.ejecutar(false, principal,x,y);
 				} else if (armaEquipada.getMunicion() == 0)
 					principal.reproducir("sin_balas");
 				labPuntaje.setText("Puntaje: " + matador.getScore());
@@ -346,12 +357,16 @@ public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 		if (principal.getEstadoPartida() == SurvivorCamp.EN_CURSO) {
 		if (e.getKeyCode() == KeyEvent.VK_ESCAPE || e.getKeyCode() == KeyEvent.VK_ALT || e.getKeyCode() == KeyEvent.VK_P)
 				principal.pausarJuego();
+        
 			else if (e.getKeyCode() == KeyEvent.VK_C) {
 				principal.cambiarArma();
 				actualizarEquipada(matador.getPrincipal());
 			} else if (e.getKeyCode() == KeyEvent.VK_SPACE && matador.getGranadas().getMunicion() > 0) {
-				principal.granadaLanzada();
-				labGranadas.setText("" + matador.getGranadas().getMunicion());
+				//principal.granadaLanzada();
+				//labGranadas.setText("" + matador.getGranadas().getMunicion());
+
+        contexto = new Contexto(new AsesinoBoom());
+        contexto.ejecutar(true, principal, 1,1);
 			} 
 		}
 		if (e.getKeyCode() == KeyEvent.VK_SHIFT)

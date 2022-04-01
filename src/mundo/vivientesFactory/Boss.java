@@ -1,8 +1,8 @@
 package mundo.vivientesFactory;
 
 import mundo.SeMueveEnZigzag;
-import mundo.armasBuilder.Granada;
-import mundo.armasBuilder.Remington;
+import mundo.armasBuilder.productsBuilders.Granada;
+import mundo.armasBuilder.productsBuilders.Remington;
 import mundo.campSingleton.SurvivorCamp;
 
 public class Boss extends Enemigo implements SeMueveEnZigzag {

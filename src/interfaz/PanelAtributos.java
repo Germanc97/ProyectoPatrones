@@ -9,8 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.plaf.basic.BasicRootPaneUI;
 
-import mundo.armasBuilder.Granada;
-import mundo.armasBuilder.Remington;
+import mundo.armasBuilder.productsBuilders.Granada;
+import mundo.armasBuilder.productsBuilders.Remington;
 import mundo.vivientesFactory.Boss;
 import mundo.vivientesFactory.Zombie;
 

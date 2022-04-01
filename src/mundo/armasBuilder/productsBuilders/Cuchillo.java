@@ -1,4 +1,6 @@
-package mundo.armasBuilder;
+package mundo.armasBuilder.productsBuilders;
+
+import mundo.armasBuilder.Arma;
 
 public class Cuchillo extends Arma{
 

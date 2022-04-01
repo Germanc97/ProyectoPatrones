@@ -1,6 +1,8 @@
-package mundo.armasBuilder;
+package mundo.armasBuilder.productsBuilders;
 
-public class Granada extends Arma  implements ArmaConMunicion{
+import mundo.armasBuilder.Arma;
+
+public class Granada extends Arma {
 
 	/**
 	 * valor incambiable que representa el da�o causado por la granada
@@ -27,12 +29,11 @@ public class Granada extends Arma  implements ArmaConMunicion{
 			descanso = getTiempoCarga();
 		return descanso;
 	}
-	@Override
+
 	public byte getMunicion() {
 		return cantidad;
 	}
-	@Override
-	public ArmaConMunicion setMunicion(byte municion) {
+	public Arma setMunicion(byte municion) {
 		cantidad = municion;
     return this;
 	}

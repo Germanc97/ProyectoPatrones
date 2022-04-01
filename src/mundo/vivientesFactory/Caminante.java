@@ -1,7 +1,7 @@
 package mundo.vivientesFactory;
 
 import mundo.SeMueveEnZigzag;
-import mundo.armasBuilder.Remington;
+import mundo.armasBuilder.productsBuilders.Remington;
 import mundo.campSingleton.SurvivorCamp;
 
 public class Caminante extends Zombie implements SeMueveEnZigzag {

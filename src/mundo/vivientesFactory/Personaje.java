@@ -4,10 +4,16 @@ import java.io.Serializable;
 
 import mundo.armasBuilder.Arma;
 import mundo.armasBuilder.ArmaDeFuego;
-import mundo.armasBuilder.Cuchillo;
-import mundo.armasBuilder.Granada;
-import mundo.armasBuilder.M1911;
-import mundo.armasBuilder.Remington;
+import mundo.armasBuilder.IBuilder;
+import mundo.armasBuilder.concreteBuilders.CuchilloBuilder;
+import mundo.armasBuilder.concreteBuilders.GranadaBuilder;
+import mundo.armasBuilder.concreteBuilders.M1911Builder;
+import mundo.armasBuilder.concreteBuilders.RemingtonBuilder;
+import mundo.armasBuilder.directorBuilder.Arsenal;
+import mundo.armasBuilder.productsBuilders.Cuchillo;
+import mundo.armasBuilder.productsBuilders.Granada;
+import mundo.armasBuilder.productsBuilders.M1911;
+import mundo.armasBuilder.productsBuilders.Remington;
 
 public class Personaje implements SerViviente, Serializable {
 
@@ -50,6 +56,9 @@ public class Personaje implements SerViviente, Serializable {
 	/**
 	 * estado temporal que indica que fue herido
 	 */
+
+
+  private Arsenal arsenal;  
 	private boolean ensangrentado;
 
 	/**
@@ -58,10 +67,28 @@ public class Personaje implements SerViviente, Serializable {
 	 */
 	public Personaje() {
 		salud = SALUD;
-		granadas = new Granada();
-		armaPrincipal = new M1911();
-		armaSecundaria = new Remington();
-		cuchillo = new Cuchillo();
+
+    arsenal = new Arsenal();
+    GranadaBuilder granadaBuilder = new GranadaBuilder();
+    arsenal.ConstructorGranada(granadaBuilder);
+    Granada granadas = granadaBuilder.getResult();
+
+    CuchilloBuilder cuchilloBuilder = new CuchilloBuilder();
+    arsenal.ConstructorCuchillo(cuchilloBuilder);
+    Cuchillo cuchillo = cuchilloBuilder.getResult();
+
+    RemingtonBuilder remingtonBuilder = new RemingtonBuilder();
+    arsenal.ConstructorRemington(remingtonBuilder);
+    Remington armaSecundaria = remingtonBuilder.getResult();
+
+    M1911Builder m1911Builder = new M1911Builder();
+    arsenal.ConstructorM1911(m1911Builder);
+    M1911 armaPrincipal = m1911Builder.getResult();
+    
+		//granadas = new Granada();
+		//armaPrincipal = new M1911();
+		//armaSecundaria = new Remington();
+		//cuchillo = new Cuchillo();
 		// municion = principal.getLimBalas();
 	}
 

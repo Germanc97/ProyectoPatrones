@@ -20,7 +20,7 @@ import interfaz.Facade.CheckFacade;
 import mundo.NombreInvalidoException;
 import mundo.Puntaje;
 import mundo.armasBuilder.ArmaDeFuego;
-import mundo.armasBuilder.Remington;
+import mundo.armasBuilder.productsBuilders.Remington;
 import mundo.campSingleton.SurvivorCamp;
 import mundo.vivientesFactory.Boss;
 import mundo.vivientesFactory.Zombie;

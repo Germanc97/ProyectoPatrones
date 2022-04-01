@@ -1,6 +1,6 @@
 package mundo.armasBuilder;
 
-public abstract class ArmaDeFuego extends Arma implements ArmaConMunicion{
+public abstract class ArmaDeFuego extends Arma{
 
 	/**
 	 * Cadena de caracteres incambaible que representa el estado de recalentamiento o recarga de un arma de efuego
@@ -45,7 +45,7 @@ public abstract class ArmaDeFuego extends Arma implements ArmaConMunicion{
 	 * cambia el l�mite de balas del arma en cuesti�n
 	 * @param limBalas
 	 */
-	protected ArmaDeFuego setLimBalas(byte limBalas) {
+	public ArmaDeFuego setLimBalas(byte limBalas) {
 		this.limBalas = limBalas;
     return this;
 	}
@@ -70,7 +70,7 @@ public abstract class ArmaDeFuego extends Arma implements ArmaConMunicion{
 	 * cambia el tiempo de recalentamiento o bombeo
 	 * @param tBombeo
 	 */
-	protected ArmaDeFuego settBombeo(short tBombeo) {
+	public ArmaDeFuego settBombeo(short tBombeo) {
 		this.tBombeo = tBombeo;
     return this;
 	}
@@ -91,12 +91,11 @@ public abstract class ArmaDeFuego extends Arma implements ArmaConMunicion{
 		this.ensangrentada = ensangrentada;
     return this;
 	}
-	@Override
+	
 	public byte getMunicion() {
 		return municion;
 	}
-	@Override
-	public ArmaConMunicion setMunicion(byte municion) {
+	public ArmaDeFuego setMunicion(byte municion) {
 		this.municion = municion;
     return this;
 	}

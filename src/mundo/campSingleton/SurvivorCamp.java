@@ -19,7 +19,7 @@ import mundo.DatosErroneosException;
 import mundo.NombreInvalidoException;
 import mundo.Puntaje;
 import mundo.armasBuilder.Arma;
-import mundo.armasBuilder.Cuchillo;
+import mundo.armasBuilder.productsBuilders.Cuchillo;
 import mundo.vivientesFactory.Boss;
 import mundo.vivientesFactory.Caminante;
 import mundo.vivientesFactory.Enemigo;

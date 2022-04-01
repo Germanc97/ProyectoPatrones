@@ -1,4 +1,6 @@
-package mundo.armasBuilder;
+package mundo.armasBuilder.productsBuilders;
+
+import mundo.armasBuilder.ArmaDeFuego;
 
 public class M1911 extends ArmaDeFuego{
 

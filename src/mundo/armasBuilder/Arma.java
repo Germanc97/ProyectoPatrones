@@ -2,7 +2,7 @@ package mundo.armasBuilder;
 
 import java.io.Serializable;
 
-public abstract class Arma implements Serializable {
+public abstract class Arma implements Serializable{
 
 	/**
 	 * cadena de caracteres que representa el estado del arma cargandose
@@ -44,7 +44,7 @@ public abstract class Arma implements Serializable {
 	 * cambia el tiempo que tarda en cargar el arma
 	 * @param tiempoCarga
 	 */
-	protected Arma setTiempoCarga(short tiempoCarga) {
+	public Arma setTiempoCarga(short tiempoCarga) {
 		this.tiempoCarga = tiempoCarga;
     return this;
 	}
@@ -53,7 +53,7 @@ public abstract class Arma implements Serializable {
 	 * cambia el da�o que causa el arma
 	 * @param danio
 	 */
-	protected Arma setDanio(byte danio) {
+	public Arma setDanio(byte danio) {
 		this.danio = danio;
     return this;
 	}

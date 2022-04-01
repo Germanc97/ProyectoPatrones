@@ -14,10 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-import mundo.armas.Cuchillo;
-import mundo.armas.Granada;
-import mundo.armas.M1911;
-import mundo.armas.Remington;
+import mundo.armasBuilder.Cuchillo;
+import mundo.armasBuilder.Granada;
+import mundo.armasBuilder.M1911;
+import mundo.armasBuilder.Remington;
 
 public class PanelArmas extends JPanel implements ActionListener{
 

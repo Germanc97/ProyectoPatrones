@@ -21,7 +21,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-import mundo.SurvivorCamp;
+import mundo.campSingleton.SurvivorCamp;
 
 public class PanelMenu extends JPanel implements KeyListener, ActionListener, MouseListener {
 
@@ -29,8 +29,8 @@ public class PanelMenu extends JPanel implements KeyListener, ActionListener, Mo
 	private static final String INICIAR = "Iniciar Nuevo Juego";
 	private static final String CARGAR = "Cargar Partida";
 	private static final String GUARDAR = "Guardar Partida";
-	private static final String COMO_JUGAR = "Cómo jugar";
-	private static final String CREDITOS = "Créditos";
+	private static final String COMO_JUGAR = "Cï¿½mo jugar";
+	private static final String CREDITOS = "Crï¿½ditos";
 	private static final String MEJORES_PUNTAJES = "Mejores Puntajes";
 
 	private InterfazZombieKiller principal;

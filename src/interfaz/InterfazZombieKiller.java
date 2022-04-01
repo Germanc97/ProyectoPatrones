@@ -16,13 +16,14 @@ import hilo.HiloBoss;
 import hilo.HiloEnemigo;
 import hilo.HiloGeneradorDeZombies;
 import hilo.HiloSonido;
+import interfaz.Facade.CheckFacade;
 import mundo.NombreInvalidoException;
 import mundo.Puntaje;
-import mundo.SurvivorCamp;
-import mundo.armas.ArmaDeFuego;
-import mundo.armas.Remington;
-import mundo.elementosVivientes.Boss;
-import mundo.elementosVivientes.Zombie;
+import mundo.armasBuilder.ArmaDeFuego;
+import mundo.armasBuilder.Remington;
+import mundo.campSingleton.SurvivorCamp;
+import mundo.vivientesFactory.Boss;
+import mundo.vivientesFactory.Zombie;
 
 public class InterfazZombieKiller extends JFrame {
 
@@ -156,13 +157,9 @@ public class InterfazZombieKiller extends JFrame {
 		add(panelCampo, BorderLayout.CENTER);
 		panelCampo.requestFocusInWindow();
     //
-		
-    HiloGeneradorDeZombies generador = new HiloGeneradorDeZombies(this, campo);
-		generador.start();
 
-    //
-		HiloEnemigo hE = new HiloEnemigo(this, campo.getZombNodoCercano(), campo);
-		hE.start();
+		CheckFacade partidaIniciadaFacade = new CheckFacade(this, campo, "partidaIniciada");
+    partidaIniciadaFacade.start();
 	}
 
 	/**
@@ -207,10 +204,11 @@ public class InterfazZombieKiller extends JFrame {
 			campo.setEstadoJuego(campo.EN_CURSO);
 			add(panelCampo, BorderLayout.CENTER);
 			panelCampo.requestFocusInWindow();
-			HiloEnemigo hE = new HiloEnemigo(this, campo.getZombNodoCercano(), campo);
-			HiloGeneradorDeZombies generador = new HiloGeneradorDeZombies(this, campo);
-			hE.start();
-			generador.start();
+
+
+      CheckFacade cargarJuegoFacade = new CheckFacade(this, campo, "cargarJuego");
+      cargarJuegoFacade.start();
+      
 			iniciarGemi2();
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(this, e.getMessage());
@@ -256,16 +254,17 @@ public class InterfazZombieKiller extends JFrame {
 			reproducir("leDio" + armaActual.getClass().getSimpleName());
 		} else
 			reproducir("disparo" + armaActual.getClass().getSimpleName());
-		HiloArma hA = new HiloArma(this, armaActual);
-		hA.start();
+
+    CheckFacade dispararFacade = new CheckFacade(this, armaActual, "disparar");
+    dispararFacade.start();
 	}
 
 	/**
 	 * inicia el sonido de los zombies
 	 */
 	public void iniciarGemi2() {
-		sonidoFondo = new HiloSonido("zombies");
-		sonidoFondo.start();
+    CheckFacade iniciarGemi2Facade = new CheckFacade("zombies", "iniciarGemi2");
+    iniciarGemi2Facade.start();
 	}
 
 	/**
@@ -322,8 +321,9 @@ public class InterfazZombieKiller extends JFrame {
 	 */
 	public void granadaLanzada() {
 		campo.seLanzoGranada();
-		HiloArma hA = new HiloArma(this, campo.getPersonaje().getGranadas());
-		hA.start();
+
+    CheckFacade granadaLanzadaFacade = new CheckFacade(this, campo, "granadaLanzada");
+    granadaLanzadaFacade.start();
 		reproducir("bomba");
 	}
 
@@ -333,8 +333,8 @@ public class InterfazZombieKiller extends JFrame {
 	public void cargarArmaPersonaje() {
 		campo.getPersonaje().cargo();
 		reproducir("carga" + armaActual.getClass().getSimpleName());
-		HiloArma hA = new HiloArma(this, armaActual);
-		hA.start();
+		CheckFacade cargarArmaPersonajeFacade = new CheckFacade(this, armaActual, "cargarArmaPersonaje");
+    cargarArmaPersonajeFacade.start();
 	}
 
 	/**
@@ -343,8 +343,9 @@ public class InterfazZombieKiller extends JFrame {
 	 * @param ruta
 	 */
 	public void reproducir(String ruta) {
-		HiloSonido efecto = new HiloSonido(ruta);
-		efecto.start();
+
+    CheckFacade reproducirFacade = new CheckFacade(ruta, "reproducir");
+    reproducirFacade.start();
 	}
 
 	/**
@@ -408,8 +409,10 @@ public class InterfazZombieKiller extends JFrame {
 		if (campo.acuchilla(x, y)) {
 			setCursor(cursorCuchillo);
 			reproducir("leDioCuchillo");
-			HiloArma hA = new HiloArma(this, campo.getPersonaje().getCuchillo());
-			hA.start();
+
+      CheckFacade acuchillarFacade = new CheckFacade(this, campo, "acuchillar");
+      acuchillarFacade.start();
+
 		} else if (armaActual.getMunicion() == 0)
 			reproducir("sin_balas");
 	}
@@ -420,8 +423,9 @@ public class InterfazZombieKiller extends JFrame {
 	public void generarBoss() {
 		Boss aMatar = campo.generarBoss();
 		panelCampo.incorporarJefe(aMatar);
-		HiloBoss hB = new HiloBoss(this, aMatar, campo);
-		hB.start();
+
+    CheckFacade generarBossFacade = new CheckFacade(this, aMatar, campo, "generarBoss");
+    generarBossFacade.start();
 	}
 
 	/**

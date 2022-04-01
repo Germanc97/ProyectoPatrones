@@ -18,11 +18,12 @@ import javax.swing.GroupLayout.Alignment;
 import javax.tools.Tool;
 
 import mundo.*;
-import mundo.armas.Arma;
-import mundo.armas.ArmaDeFuego;
-import mundo.elementosVivientes.Boss;
-import mundo.elementosVivientes.Personaje;
-import mundo.elementosVivientes.Zombie;
+import mundo.armasBuilder.Arma;
+import mundo.armasBuilder.ArmaDeFuego;
+import mundo.campSingleton.SurvivorCamp;
+import mundo.vivientesFactory.Boss;
+import mundo.vivientesFactory.Personaje;
+import mundo.vivientesFactory.Zombie;
 
 public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 

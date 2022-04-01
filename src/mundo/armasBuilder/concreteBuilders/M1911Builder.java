@@ -7,6 +7,10 @@ public class M1911Builder implements IBuilder{
 
   private M1911 m1911;
 
+  public M1911Builder() {
+    this.m1911 = new M1911();
+  }
+
   @Override
   public void setTiempoCarga(short tiempoCarga) {
     this.m1911.setTiempoCarga(tiempoCarga);

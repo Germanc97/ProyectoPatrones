@@ -6,6 +6,10 @@ import mundo.armasBuilder.productsBuilders.Granada;
 public class GranadaBuilder implements IBuilder{
 
   private Granada granada;
+
+  public GranadaBuilder() {
+    this.granada = new Granada();
+  }
   
   @Override
   public void setTiempoCarga(short tiempoCarga) {

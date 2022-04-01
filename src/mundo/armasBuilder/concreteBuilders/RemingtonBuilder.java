@@ -7,6 +7,10 @@ public class RemingtonBuilder implements IBuilder{
 
   private Remington remington;
 
+  public RemingtonBuilder() {
+    this.remington = new Remington();
+  }
+
   @Override
   public void setTiempoCarga(short tiempoCarga) {
     this.remington.setTiempoCarga(tiempoCarga);

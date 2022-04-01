@@ -7,6 +7,11 @@ public class CuchilloBuilder implements IBuilder{
 
   private Cuchillo cuchillo;
   
+
+  public CuchilloBuilder() {
+    this.cuchillo = new Cuchillo();
+  }
+
   @Override
   public void setTiempoCarga(short tiempoCarga) {
     this.cuchillo.setTiempoCarga(tiempoCarga);

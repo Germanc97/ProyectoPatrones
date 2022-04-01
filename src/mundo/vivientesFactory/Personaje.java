@@ -71,19 +71,19 @@ public class Personaje implements SerViviente, Serializable {
     arsenal = new Arsenal();
     GranadaBuilder granadaBuilder = new GranadaBuilder();
     arsenal.ConstructorGranada(granadaBuilder);
-    Granada granadas = granadaBuilder.getResult();
+    granadas = granadaBuilder.getResult();
 
     CuchilloBuilder cuchilloBuilder = new CuchilloBuilder();
     arsenal.ConstructorCuchillo(cuchilloBuilder);
-    Cuchillo cuchillo = cuchilloBuilder.getResult();
+    cuchillo = cuchilloBuilder.getResult();
 
     RemingtonBuilder remingtonBuilder = new RemingtonBuilder();
     arsenal.ConstructorRemington(remingtonBuilder);
-    Remington armaSecundaria = remingtonBuilder.getResult();
+    armaSecundaria = remingtonBuilder.getResult();
 
     M1911Builder m1911Builder = new M1911Builder();
     arsenal.ConstructorM1911(m1911Builder);
-    M1911 armaPrincipal = m1911Builder.getResult();
+    armaPrincipal = m1911Builder.getResult();
     
 		//granadas = new Granada();
 		//armaPrincipal = new M1911();

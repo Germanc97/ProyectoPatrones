@@ -3,8 +3,6 @@ package hilo;
 import interfaz.InterfazZombieKiller;
 import mundo.Builder.Arma;
 import mundo.Builder.ArmaDeFuego;
-import mundo.Builder.productsBuilders.Cuchillo;
-import mundo.Builder.productsBuilders.Granada;
 import mundo.Builder.productsBuilders.Remington;
 
 public class HiloArma extends Thread {

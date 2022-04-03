@@ -12,8 +12,6 @@ import mundo.Builder.concreteBuilders.RemingtonBuilder;
 import mundo.Builder.directorBuilder.Arsenal;
 import mundo.Builder.productsBuilders.Cuchillo;
 import mundo.Builder.productsBuilders.Granada;
-import mundo.Builder.productsBuilders.M1911;
-import mundo.Builder.productsBuilders.Remington;
 
 public class Personaje implements SerViviente, Serializable {
 

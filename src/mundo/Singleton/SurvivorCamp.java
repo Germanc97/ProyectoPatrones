@@ -14,6 +14,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Comparator;
 
+import interfaz.PanelCamp;
 import mundo.ComparadorPuntajePorNombre;
 import mundo.DatosErroneosException;
 import mundo.NombreInvalidoException;
@@ -27,6 +28,8 @@ import mundo.Factory.Personaje;
 import mundo.Factory.Rastrero;
 import mundo.Factory.Zombie;
 import mundo.Factory.ZoombieGenerator;
+import mundo.Proxy.IPersonaje;
+import mundo.Proxy.PersonajeProxy;
 
 public class SurvivorCamp implements Cloneable, Comparator<Puntaje> {
 
@@ -107,13 +110,15 @@ public class SurvivorCamp implements Cloneable, Comparator<Puntaje> {
 	 * mejoresPuntajes pero est�n ordenados por Score
 	 */
 	private Puntaje raizPuntajes;
-
+  private IPersonaje personajeProxy;
   private static SurvivorCamp instance;
+  private PanelCamp panelCamp;
 	/**
 	 * Constructor de la clase principal del mundo
 	 */
 	private SurvivorCamp() {
 		personaje = new Personaje();
+    personajeProxy = new PersonajeProxy();
 		// aEliminar = new ArrayList<Zombie>();
 		estadoJuego = SIN_PARTIDA;
 		rondaActual = 0;
@@ -291,7 +296,10 @@ public class SurvivorCamp implements Cloneable, Comparator<Puntaje> {
 				if (actual.getSalud() <= 0) {
 					personaje.aumentarScore(10 + actual.getSalud() * (-10));
 					if (actual.getEstadoActual().equals(Zombie.MURIENDO_HEADSHOT))
-						personaje.aumentarTirosALaCabeza();
+            personaje = personajeProxy.setHeadShots(personaje);            
+            personajeProxy.getHeadShots(personaje, panelCamp);
+            
+						
 				}
 
 				personaje.setEnsangrentado(false);
@@ -311,6 +319,9 @@ public class SurvivorCamp implements Cloneable, Comparator<Puntaje> {
 		return leDio;
 	}
 
+  public void setPanelCamp(PanelCamp panelCamp){
+    this.panelCamp = panelCamp;
+  }
 	/**
 	 * cambia los estados del personaje con corde a que recibe un ara�azo
 	 * zombie, termina el juego si muere

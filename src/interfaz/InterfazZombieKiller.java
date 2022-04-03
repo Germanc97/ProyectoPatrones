@@ -94,6 +94,7 @@ public class InterfazZombieKiller extends JFrame {
 		add(panelMenu, BorderLayout.CENTER);
 
 		campo = campo.getInstance();
+    campo.setPanelCamp(panelCampo);
 		try {
 			campo.cargarPuntajes();
 		} catch (ClassNotFoundException e) {

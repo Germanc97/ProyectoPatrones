@@ -37,6 +37,7 @@ public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 	private JLabel labTirosALaCabeza;
 	private JProgressBar labVidas;
 	private JLabel labGranadas;
+  private JLabel labHeadShots;
 	private JLabel labBalas;
 	private JPanel mostrador;
 	private InterfazZombieKiller principal;
@@ -75,6 +76,17 @@ public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 		labPuntaje.setHorizontalAlignment(SwingConstants.CENTER);
 		labPuntaje.setForeground(Color.white);
 
+    labHeadShots = new JLabel();
+    ImageIcon imageIcon = new ImageIcon(getClass().getResource("/img/Fondo/headShot.png")); // load the image to a imageIcon
+    Image image = imageIcon.getImage(); // transform it 
+    Image newimg = image.getScaledInstance(120, 120,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way  
+    imageIcon = new ImageIcon(newimg);
+    labHeadShots.setIcon(imageIcon);
+		labHeadShots.setFont(tipo);
+		labHeadShots.setVerticalAlignment(SwingConstants.TOP);
+		labHeadShots.setForeground(Color.white);
+
+
 		labVidas = new JProgressBar();
 		labVidas.setFont(tipo);
 		labVidas.setMaximum(Personaje.SALUD);
@@ -106,6 +118,7 @@ public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 		add(labVidas, BorderLayout.SOUTH);
 		add(labBalas, BorderLayout.EAST);
 		add(labGranadas, BorderLayout.WEST);
+    add(labHeadShots, BorderLayout.AFTER_LINE_ENDS);
 		add(mostrador, BorderLayout.CENTER);
 	}
 
@@ -124,8 +137,10 @@ public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 		matador = personaje;
 		labVidas.setValue(matador.getSalud());
 		labPuntaje.setText("Puntaje: " + matador.getScore());
+    labHeadShots.setText("HeadShots: "+ matador.getHeadShots());
 		labBajas.setText("Bajas: " + matador.getMatanza());
 		labGranadas.setText(matador.getGranadas().getMunicion() + "");
+    
 	}
 
 	public void actualizarRonda() {
@@ -335,6 +350,7 @@ public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 				} else if (armaEquipada.getMunicion() == 0)
 					principal.reproducir("sin_balas");
 				labPuntaje.setText("Puntaje: " + matador.getScore());
+        
 				labBajas.setText("Bajas: " + matador.getMatanza());
 			} else if (arg0.getButton() == MouseEvent.BUTTON3
 					&& armaEquipada.getMunicion() < armaEquipada.getLimBalas())
@@ -343,6 +359,9 @@ public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 		}
 	}
 
+  public void setHeadShotsLabel(Personaje personaje){
+    labHeadShots.setText("Puntaje: " + personaje.getHeadShots());
+  }
 	public void zombieAtaco() {
 		labVidas.setValue(matador.getSalud());
 	}

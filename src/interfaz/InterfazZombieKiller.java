@@ -281,8 +281,12 @@ public class InterfazZombieKiller extends JFrame {
 	 * @param nivel
 	 */
 	public void generarZombie(int nivel) {
-		Zombie chombi = campo.generarZombie(nivel);
+		campo.generarZombie(nivel);
 	}
+
+  public Zombie getZoombie(int nivel) {
+		return campo.getZoombie(nivel);
+	} 
 
 	/**
 	 * Ejecuta los efectos tras ser atacado por un enemigo

@@ -2,12 +2,14 @@ package hilo;
 
 import interfaz.InterfazZombieKiller;
 import mundo.campSingleton.SurvivorCamp;
+import mundo.iterator.listaZoombies;
 import mundo.vivientesFactory.Zombie;
 
 public class HiloGeneradorDeZombies extends Thread {
 
 	private InterfazZombieKiller principal;
 	private SurvivorCamp campo;
+  private listaZoombies listaZombies;
 
 	public HiloGeneradorDeZombies(InterfazZombieKiller principal, SurvivorCamp campo) {
 		this.principal = principal;
@@ -20,10 +22,19 @@ public class HiloGeneradorDeZombies extends Thread {
 			while (principal.estaCargando())
 				sleep(1000);
 			principal.cambiarPuntero();
-			int contadorZombiesPorNivel = campo.getCantidadZombiesGenerados();
+			// *** Este número solo es para validación
+      int contadorZombiesPorNivel = campo.getCantidadZombiesGenerados();
+      // ***** ***** ***** ***** ***** ***** *****
 			int nivel = campo.getRondaActual();
+
+      
+      
+
 			while (campo.getEstadoJuego() != SurvivorCamp.SIN_PARTIDA) {
 //				 System.out.println(contadorZombiesPorNivel);
+        for(int i = 0; i<contadorZombiesPorNivel; i++){
+          listaZoombies.agregar(principal.getZoombie(nivel));
+        }
 				if (contadorZombiesPorNivel % SurvivorCamp.NUMERO_ZOMBIES_RONDA == 0) {
 					while (!campo.getZombNodoLejano().getAlFrente().getEstadoActual().equals(Zombie.NODO) && campo.getPersonaje().getSalud() > 0) {
 						sleep(1000);
@@ -42,9 +53,14 @@ public class HiloGeneradorDeZombies extends Thread {
 				if (nivel < 10 && campo.getEstadoJuego() != SurvivorCamp.SIN_PARTIDA) {
 //					System.out.println("llama al metodo de generar zombie desde el hilo generador");
 					if(!campo.getZombNodoLejano().getAlFrente().getEstadoActual().equals(Zombie.MURIENDO_INCENDIADO))
-					principal.generarZombie(nivel);
+					
+          // ***** AQUI PUEDO APLICARLO ******
+          //
+          principal.generarZombie(nivel);
 					contadorZombiesPorNivel++;
-					sleep(1400);
+					// ******* ******* *******
+
+          sleep(1400);
 				} else if (nivel == 10) {
 					principal.generarBoss();
 					while (campo.getEstadoJuego() != SurvivorCamp.SIN_PARTIDA)

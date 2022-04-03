@@ -1,6 +1,6 @@
-package mundo.vivientesFactory;
+package mundo.Factory;
 
-import mundo.armasBuilder.productsBuilders.Remington;
+import mundo.Builder.productsBuilders.Remington;
 
 public class Rastrero extends Zombie {
 

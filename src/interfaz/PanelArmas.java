@@ -2,22 +2,19 @@ package interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.print.attribute.standard.JobName;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 
-import mundo.armasBuilder.productsBuilders.Cuchillo;
-import mundo.armasBuilder.productsBuilders.Granada;
-import mundo.armasBuilder.productsBuilders.M1911;
-import mundo.armasBuilder.productsBuilders.Remington;
+
+import mundo.Builder.productsBuilders.Cuchillo;
+import mundo.Builder.productsBuilders.Granada;
+import mundo.Builder.productsBuilders.M1911;
+import mundo.Builder.productsBuilders.Remington;
 
 public class PanelArmas extends JPanel implements ActionListener{
 

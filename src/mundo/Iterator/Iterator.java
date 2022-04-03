@@ -1,4 +1,4 @@
-package mundo.iterator;
+package mundo.Iterator;
 
 public interface Iterator {
   public boolean hasNext();

@@ -17,17 +17,17 @@ import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
 import javax.tools.Tool;
 
-import interfaz.strategy.AsesinatoExplosivo;
-import interfaz.strategy.Asesino;
-import interfaz.strategy.AsesinoBoom;
-import interfaz.strategy.Contexto;
+import interfaz.Strategy.AsesinatoExplosivo;
+import interfaz.Strategy.Asesino;
+import interfaz.Strategy.AsesinoBoom;
+import interfaz.Strategy.Contexto;
 import mundo.*;
-import mundo.armasBuilder.Arma;
-import mundo.armasBuilder.ArmaDeFuego;
-import mundo.campSingleton.SurvivorCamp;
-import mundo.vivientesFactory.Boss;
-import mundo.vivientesFactory.Personaje;
-import mundo.vivientesFactory.Zombie;
+import mundo.Builder.Arma;
+import mundo.Builder.ArmaDeFuego;
+import mundo.Factory.Boss;
+import mundo.Factory.Personaje;
+import mundo.Factory.Zombie;
+import mundo.Singleton.SurvivorCamp;
 
 public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 

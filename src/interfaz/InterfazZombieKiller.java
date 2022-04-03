@@ -11,19 +11,15 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import hilo.HiloArma;
-import hilo.HiloBoss;
-import hilo.HiloEnemigo;
-import hilo.HiloGeneradorDeZombies;
 import hilo.HiloSonido;
 import interfaz.Facade.CheckFacade;
 import mundo.NombreInvalidoException;
 import mundo.Puntaje;
-import mundo.armasBuilder.ArmaDeFuego;
-import mundo.armasBuilder.productsBuilders.Remington;
-import mundo.campSingleton.SurvivorCamp;
-import mundo.vivientesFactory.Boss;
-import mundo.vivientesFactory.Zombie;
+import mundo.Builder.ArmaDeFuego;
+import mundo.Builder.productsBuilders.Remington;
+import mundo.Factory.Boss;
+import mundo.Factory.Zombie;
+import mundo.Singleton.SurvivorCamp;
 
 public class InterfazZombieKiller extends JFrame {
 
@@ -286,6 +282,10 @@ public class InterfazZombieKiller extends JFrame {
 
   public Zombie getZoombie(int nivel) {
 		return campo.getZoombie(nivel);
+	}
+  
+  public void introducirZoombi(Zombie i) {
+		campo.introducirZoombi(i);
 	} 
 
 	/**

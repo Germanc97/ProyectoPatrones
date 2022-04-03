@@ -1,4 +1,4 @@
-package mundo.vivientesFactory;
+package mundo.Factory;
 
 public abstract class Zombie extends Enemigo {
 	

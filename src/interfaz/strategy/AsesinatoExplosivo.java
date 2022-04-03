@@ -1,4 +1,4 @@
-package interfaz.strategy;
+package interfaz.Strategy;
 
 import interfaz.InterfazZombieKiller;
 

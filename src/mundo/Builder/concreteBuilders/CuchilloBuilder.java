@@ -1,7 +1,7 @@
-package mundo.armasBuilder.concreteBuilders;
+package mundo.Builder.concreteBuilders;
 
-import mundo.armasBuilder.IBuilder;
-import mundo.armasBuilder.productsBuilders.Cuchillo;
+import mundo.Builder.IBuilder;
+import mundo.Builder.productsBuilders.Cuchillo;
 
 public class CuchilloBuilder implements IBuilder{
 

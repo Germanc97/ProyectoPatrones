@@ -1,4 +1,4 @@
-package mundo.armasBuilder;
+package mundo.Builder;
 
 public abstract class ArmaDeFuego extends Arma{
 

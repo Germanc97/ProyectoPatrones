@@ -1,4 +1,4 @@
-package mundo.armasBuilder;
+package mundo.Builder;
 
 import java.io.Serializable;
 

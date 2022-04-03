@@ -1,4 +1,4 @@
-package mundo.campSingleton;
+package mundo.Singleton;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -18,15 +18,15 @@ import mundo.ComparadorPuntajePorNombre;
 import mundo.DatosErroneosException;
 import mundo.NombreInvalidoException;
 import mundo.Puntaje;
-import mundo.armasBuilder.Arma;
-import mundo.armasBuilder.productsBuilders.Cuchillo;
-import mundo.vivientesFactory.Boss;
-import mundo.vivientesFactory.Caminante;
-import mundo.vivientesFactory.Enemigo;
-import mundo.vivientesFactory.Personaje;
-import mundo.vivientesFactory.Rastrero;
-import mundo.vivientesFactory.Zombie;
-import mundo.vivientesFactory.ZoombieGenerator;
+import mundo.Builder.Arma;
+import mundo.Builder.productsBuilders.Cuchillo;
+import mundo.Factory.Boss;
+import mundo.Factory.Caminante;
+import mundo.Factory.Enemigo;
+import mundo.Factory.Personaje;
+import mundo.Factory.Rastrero;
+import mundo.Factory.Zombie;
+import mundo.Factory.ZoombieGenerator;
 
 public class SurvivorCamp implements Cloneable, Comparator<Puntaje> {
 

@@ -6,9 +6,9 @@ import hilo.HiloEnemigo;
 import hilo.HiloGeneradorDeZombies;
 import hilo.HiloSonido;
 import interfaz.InterfazZombieKiller;
-import mundo.armasBuilder.ArmaDeFuego;
-import mundo.campSingleton.SurvivorCamp;
-import mundo.vivientesFactory.Boss;
+import mundo.Builder.ArmaDeFuego;
+import mundo.Factory.Boss;
+import mundo.Singleton.SurvivorCamp;
 
 
 public class CheckFacade {

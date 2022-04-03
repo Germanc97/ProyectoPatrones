@@ -1,7 +1,7 @@
-package mundo.armasBuilder.concreteBuilders;
+package mundo.Builder.concreteBuilders;
 
-import mundo.armasBuilder.IBuilder;
-import mundo.armasBuilder.productsBuilders.M1911;
+import mundo.Builder.IBuilder;
+import mundo.Builder.productsBuilders.M1911;
 
 public class M1911Builder implements IBuilder{
 

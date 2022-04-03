@@ -1,19 +1,19 @@
-package mundo.vivientesFactory;
+package mundo.Factory;
 
 import java.io.Serializable;
 
-import mundo.armasBuilder.Arma;
-import mundo.armasBuilder.ArmaDeFuego;
-import mundo.armasBuilder.IBuilder;
-import mundo.armasBuilder.concreteBuilders.CuchilloBuilder;
-import mundo.armasBuilder.concreteBuilders.GranadaBuilder;
-import mundo.armasBuilder.concreteBuilders.M1911Builder;
-import mundo.armasBuilder.concreteBuilders.RemingtonBuilder;
-import mundo.armasBuilder.directorBuilder.Arsenal;
-import mundo.armasBuilder.productsBuilders.Cuchillo;
-import mundo.armasBuilder.productsBuilders.Granada;
-import mundo.armasBuilder.productsBuilders.M1911;
-import mundo.armasBuilder.productsBuilders.Remington;
+import mundo.Builder.Arma;
+import mundo.Builder.ArmaDeFuego;
+import mundo.Builder.IBuilder;
+import mundo.Builder.concreteBuilders.CuchilloBuilder;
+import mundo.Builder.concreteBuilders.GranadaBuilder;
+import mundo.Builder.concreteBuilders.M1911Builder;
+import mundo.Builder.concreteBuilders.RemingtonBuilder;
+import mundo.Builder.directorBuilder.Arsenal;
+import mundo.Builder.productsBuilders.Cuchillo;
+import mundo.Builder.productsBuilders.Granada;
+import mundo.Builder.productsBuilders.M1911;
+import mundo.Builder.productsBuilders.Remington;
 
 public class Personaje implements SerViviente, Serializable {
 

@@ -1,6 +1,6 @@
-package mundo.iterator;
+package mundo.Iterator;
 
-import mundo.vivientesFactory.Zombie;
+import mundo.Factory.Zombie;
 
 public class ListaZoombiesIterator implements Iterator{
   private int posicion = 0;

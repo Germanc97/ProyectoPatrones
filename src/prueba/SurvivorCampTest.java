@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 import junit.framework.TestCase;
 import mundo.Puntaje;
-import mundo.campSingleton.SurvivorCamp;
-import mundo.vivientesFactory.Zombie;
+import mundo.Factory.Zombie;
+import mundo.Singleton.SurvivorCamp;
 
 public class SurvivorCampTest extends TestCase{
 

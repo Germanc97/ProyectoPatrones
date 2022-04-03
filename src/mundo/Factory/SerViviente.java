@@ -1,4 +1,4 @@
-package mundo.vivientesFactory;
+package mundo.Factory;
 
 public interface SerViviente {
 	/**

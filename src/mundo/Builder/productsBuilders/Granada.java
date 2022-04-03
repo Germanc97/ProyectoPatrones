@@ -1,6 +1,6 @@
-package mundo.armasBuilder.productsBuilders;
+package mundo.Builder.productsBuilders;
 
-import mundo.armasBuilder.Arma;
+import mundo.Builder.Arma;
 
 public class Granada extends Arma {
 

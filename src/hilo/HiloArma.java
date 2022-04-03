@@ -1,11 +1,11 @@
 package hilo;
 
 import interfaz.InterfazZombieKiller;
-import mundo.armasBuilder.Arma;
-import mundo.armasBuilder.ArmaDeFuego;
-import mundo.armasBuilder.productsBuilders.Cuchillo;
-import mundo.armasBuilder.productsBuilders.Granada;
-import mundo.armasBuilder.productsBuilders.Remington;
+import mundo.Builder.Arma;
+import mundo.Builder.ArmaDeFuego;
+import mundo.Builder.productsBuilders.Cuchillo;
+import mundo.Builder.productsBuilders.Granada;
+import mundo.Builder.productsBuilders.Remington;
 
 public class HiloArma extends Thread {
 

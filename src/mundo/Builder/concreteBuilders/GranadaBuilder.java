@@ -1,7 +1,7 @@
-package mundo.armasBuilder.concreteBuilders;
+package mundo.Builder.concreteBuilders;
 
-import mundo.armasBuilder.IBuilder;
-import mundo.armasBuilder.productsBuilders.Granada;
+import mundo.Builder.IBuilder;
+import mundo.Builder.productsBuilders.Granada;
 
 public class GranadaBuilder implements IBuilder{
 

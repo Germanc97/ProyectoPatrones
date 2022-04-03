@@ -1,6 +1,6 @@
-package mundo.armasBuilder.directorBuilder;
+package mundo.Builder.directorBuilder;
 
-import mundo.armasBuilder.IBuilder;
+import mundo.Builder.IBuilder;
 
 public class Arsenal {
 

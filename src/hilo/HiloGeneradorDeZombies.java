@@ -1,15 +1,17 @@
 package hilo;
 
 import interfaz.InterfazZombieKiller;
-import mundo.campSingleton.SurvivorCamp;
-import mundo.iterator.listaZoombies;
-import mundo.vivientesFactory.Zombie;
+import mundo.Factory.Zombie;
+import mundo.Iterator.Iterator;
+import mundo.Iterator.CollecionZoombies;
+import mundo.Singleton.SurvivorCamp;
 
 public class HiloGeneradorDeZombies extends Thread {
 
 	private InterfazZombieKiller principal;
 	private SurvivorCamp campo;
-  private listaZoombies listaZombies;
+  private CollecionZoombies listaZombies;
+  private Iterator iterator;
 
 	public HiloGeneradorDeZombies(InterfazZombieKiller principal, SurvivorCamp campo) {
 		this.principal = principal;
@@ -29,12 +31,15 @@ public class HiloGeneradorDeZombies extends Thread {
 
       
       
+      listaZombies = new CollecionZoombies();
+      for(int i = 0; i<SurvivorCamp.NUMERO_ZOMBIES_RONDA; i++){
+        listaZombies.agregar(principal.getZoombie(nivel));
+      }
+      iterator = listaZombies.createIterator();
 
 			while (campo.getEstadoJuego() != SurvivorCamp.SIN_PARTIDA) {
 //				 System.out.println(contadorZombiesPorNivel);
-        for(int i = 0; i<contadorZombiesPorNivel; i++){
-          listaZoombies.agregar(principal.getZoombie(nivel));
-        }
+        
 				if (contadorZombiesPorNivel % SurvivorCamp.NUMERO_ZOMBIES_RONDA == 0) {
 					while (!campo.getZombNodoLejano().getAlFrente().getEstadoActual().equals(Zombie.NODO) && campo.getPersonaje().getSalud() > 0) {
 						sleep(1000);
@@ -43,6 +48,13 @@ public class HiloGeneradorDeZombies extends Thread {
 						while (campo.getEstadoJuego() == SurvivorCamp.PAUSADO)
 							sleep(500);
 						nivel++;
+
+            listaZombies = new CollecionZoombies();
+            for(int i = 0; i<SurvivorCamp.NUMERO_ZOMBIES_RONDA; i++){
+              listaZombies.agregar(principal.getZoombie(nivel));
+            }
+            iterator = listaZombies.createIterator();
+
 						principal.subirDeRonda(nivel);
 						sleep(2000);
 						principal.iniciarGemi2();
@@ -56,7 +68,9 @@ public class HiloGeneradorDeZombies extends Thread {
 					
           // ***** AQUI PUEDO APLICARLO ******
           //
-          principal.generarZombie(nivel);
+          principal.introducirZoombi((Zombie) iterator.next());
+          
+          //principal.generarZombie(nivel);
 					contadorZombiesPorNivel++;
 					// ******* ******* *******
 

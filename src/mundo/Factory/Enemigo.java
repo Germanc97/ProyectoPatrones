@@ -1,8 +1,8 @@
-package mundo.vivientesFactory;
+package mundo.Factory;
 
 import java.util.Formatter;
 
-import mundo.campSingleton.SurvivorCamp;
+import mundo.Singleton.SurvivorCamp;
 
 public abstract class Enemigo implements SerViviente{
 	/**

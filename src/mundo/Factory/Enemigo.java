@@ -172,6 +172,8 @@ public abstract class Enemigo implements SerViviente{
 	 */
 	public String getURL() {
 		Formatter formato = new Formatter();
-		return "/img/" + getClass().getSimpleName() + "/" + estadoActual + "/" + formato.format("%02d",getFrameActual()) + ".png";
+    return "/img/" + getClass().getSimpleName() + "/" + estadoActual + "/" + formato.format("%02d",getFrameActual()) + ".png";
+  
+		
 	}
 }

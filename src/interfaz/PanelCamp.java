@@ -5,23 +5,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.WindowEvent;
-import java.lang.invoke.LambdaMetafactory;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Formatter;
 
 //@SuppressWarnings("serial")
 import javax.swing.*;
-import javax.swing.GroupLayout.Alignment;
-import javax.tools.Tool;
-
-import interfaz.Strategy.AsesinatoExplosivo;
 import interfaz.Strategy.Asesino;
 import interfaz.Strategy.AsesinoBoom;
 import interfaz.Strategy.Contexto;
-import mundo.*;
 import mundo.Builder.Arma;
 import mundo.Builder.ArmaDeFuego;
 import mundo.Factory.Boss;
@@ -163,6 +153,7 @@ public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 		if (getDebugGraphicsOptions() == DebugGraphics.BUFFERED_OPTION) {
 			requestFocusInWindow();
 			cargarImagenes();
+      cargarImagenesCasco();
 			setDebugGraphicsOptions(DebugGraphics.NONE_OPTION);
 		}
 		Zombie aPintar = chombiMasLejano.getAlFrente();
@@ -215,6 +206,101 @@ public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 		}
 	}
 
+  private void cargarImagenesCasco() {
+		imagenesCargadas = new ImageIcon[205];
+		ImageIcon actual;
+		int contador = 0;
+		// 31 es la mayor cantidad de imagenes de una animaci�n
+		Formatter formato;
+		for (int i = 0; i <= 31; i++) {
+      formato = new Formatter();
+			
+			actual = new ImageIcon(
+					getClass().getResource("/img/Rastrero/caminando/" + formato.format("%02d", i) + ".png"));
+			imagenesCargadas[contador] = actual;
+			contador++;
+			if (i <= 24) {
+				formato = new Formatter();
+				actual = new ImageIcon(
+						getClass().getResource("/img/Caminante/caminandoDecorado/" + formato.format("%02d", i) + ".png"));
+				imagenesCargadas[contador] = actual;
+				contador++;
+				if (i <= 21) {
+					formato = new Formatter();
+					// System.out.println(chief.getURL());
+					actual = new ImageIcon(
+							getClass().getResource("/img/Boss/atacando/" + formato.format("%02d", i) + ".png"));
+					imagenesCargadas[contador] = actual;
+					contador++;
+					if (i <= 17) {
+						formato = new Formatter();
+						actual = new ImageIcon(getClass()
+								.getResource("/img/Caminante/muriendo/" + formato.format("%02d", i) + ".png"));
+						imagenesCargadas[contador] = actual;
+						contador++;
+						formato = new Formatter();
+						actual = new ImageIcon(getClass().getResource(
+								"/img/Caminante/muriendoIncendiado/" + formato.format("%02d", i) + ".png"));
+						imagenesCargadas[contador] = actual;
+						contador++;
+						formato = new Formatter();
+						actual = new ImageIcon(getClass()
+								.getResource("/img/Caminante/grunendo/" + formato.format("%02d", i) + ".png"));
+						imagenesCargadas[contador] = actual;
+						contador++;
+						if (i <= 13) {
+							formato = new Formatter();
+							actual = new ImageIcon(
+									getClass().getResource("/img/Boss/volando/" + formato.format("%02d", i) + ".png"));
+							imagenesCargadas[contador] = actual;
+							contador++;
+							formato = new Formatter();
+							actual = new ImageIcon(getClass()
+									.getResource("/img/Caminante/atacando/" + formato.format("%02d", i) + ".png"));
+							imagenesCargadas[contador] = actual;
+							contador++;
+							formato = new Formatter();
+							actual = new ImageIcon(getClass()
+									.getResource("/img/Rastrero/atacando/" + formato.format("%02d", i) + ".png"));
+							imagenesCargadas[contador] = actual;
+							contador++;
+							if (i <= 11) {
+								formato = new Formatter();
+								actual = new ImageIcon(getClass()
+										.getResource("/img/Rastrero/muriendo/" + formato.format("%02d", i) + ".png"));
+								imagenesCargadas[contador] = actual;
+								contador++;
+								formato = new Formatter();
+								actual = new ImageIcon(getClass().getResource(
+										"/img/Rastrero/muriendoIncendiado/" + formato.format("%02d", i) + ".png"));
+								imagenesCargadas[contador] = actual;
+								contador++;
+							}
+						}
+					}
+				}
+			}
+		}
+		actual = new ImageIcon(getClass().getResource("/img/Fondo/sangre.png"));
+		imagenesCargadas[contador] = actual;
+		contador++;
+		actual = new ImageIcon(getClass().getResource("/img/Fondo/boss_ataca.png"));
+		imagenesCargadas[contador] = actual;
+		contador++;
+		actual = new ImageIcon(getClass().getResource("/img/Fondo/disparoM1911.png"));
+		imagenesCargadas[contador] = actual;
+		contador++;
+		actual = new ImageIcon(getClass().getResource("/img/Fondo/disparoRemington.png"));
+		imagenesCargadas[contador] = actual;
+		contador++;
+		actual = new ImageIcon(getClass().getResource("/img/Fondo/fondoMenu.png"));
+		imagenesCargadas[contador] = actual;
+		contador++;
+		actual = new ImageIcon(getClass().getResource("/img/Fondo/escenario-fondo-azul.png"));
+		imagenesCargadas[contador] = actual;
+		contador++;
+		// System.out.println(contador);
+	}
 	private void cargarImagenes() {
 		imagenesCargadas = new ImageIcon[205];
 		ImageIcon actual;
@@ -360,7 +446,7 @@ public class PanelCamp extends JPanel implements MouseListener, KeyListener {
 	}
 
   public void setHeadShotsLabel(Personaje personaje){
-    labHeadShots.setText("Puntaje: " + personaje.getHeadShots());
+    labHeadShots.setText("HeadShot: " + personaje.getHeadShots());
   }
 	public void zombieAtaco() {
 		labVidas.setValue(matador.getSalud());

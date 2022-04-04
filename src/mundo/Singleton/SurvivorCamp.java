@@ -21,11 +21,13 @@ import mundo.NombreInvalidoException;
 import mundo.Puntaje;
 import mundo.Builder.Arma;
 import mundo.Builder.productsBuilders.Cuchillo;
+import mundo.Decorator.BlindajeDecorador;
 import mundo.Factory.Boss;
 import mundo.Factory.Caminante;
 import mundo.Factory.Enemigo;
 import mundo.Factory.Personaje;
 import mundo.Factory.Rastrero;
+import mundo.Factory.SerViviente;
 import mundo.Factory.Zombie;
 import mundo.Factory.ZoombieGenerator;
 import mundo.Proxy.IPersonaje;
@@ -249,10 +251,22 @@ public class SurvivorCamp implements Cloneable, Comparator<Puntaje> {
 			tipoZombie = 1;
 		Zombie generado;
   
-		if (tipoZombie == 1)
+		if (tipoZombie == 1){
       generado = ZoombieGenerator.getInstance().generate("Rastrero", level, zombNodoLejano);
-		else
-      generado = ZoombieGenerator.getInstance().generate("Caminante", level, zombNodoLejano);
+    }else {
+      tipoZombie = (int) (Math.random() * 2);
+      if (tipoZombie == 1){
+        generado = ZoombieGenerator.getInstance().generate("Caminante", level, zombNodoLejano);
+      }else{
+        generado = ZoombieGenerator.getInstance().generate("Caminante", level, zombNodoLejano);
+        SerViviente serViviente = generado;
+        BlindajeDecorador caminanteDecorado = new BlindajeDecorador(serViviente);
+        caminanteDecorado.agrearBlindaje(generado);
+        generado = caminanteDecorado.getZombieBlindaje();
+      }
+      
+    }
+     
     return generado;
   }
 
@@ -565,7 +579,7 @@ public class SurvivorCamp implements Cloneable, Comparator<Puntaje> {
 			throws DatosErroneosException {
 		if (posX > ANCHO_PANTALLA - Zombie.ANCHO_IMAGEN || posX < 0 || posY > Zombie.POS_ATAQUE
 				|| posY < Zombie.POS_INICIAL || frameActual > 31
-				|| (!estadoActual.equals(Zombie.CAMINANDO) && !estadoActual.equals(Zombie.MURIENDO_INCENDIADO)
+				|| ((!estadoActual.equals(Zombie.CAMINANDO) || !estadoActual.equals(Zombie.CAMINANDODECORADO)) && !estadoActual.equals(Zombie.MURIENDO_INCENDIADO)
 						&& !estadoActual.equals(Zombie.MURIENDO) && !estadoActual.equals(Zombie.ATACANDO)))
 			throw new DatosErroneosException();
 	}

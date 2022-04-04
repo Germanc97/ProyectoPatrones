@@ -75,7 +75,21 @@ public class Caminante extends Zombie implements SeMueveEnZigzag {
 				else
 					setFrameActual((byte) (getFrameActual() + 1));
 			}
-		} else if (getEstadoActual().equals(ATACANDO)) {
+		} else if (getEstadoActual().equals(CAMINANDODECORADO)) {
+			if (getPosY() > POS_ATAQUE) {
+				setEstadoActual(ATACANDO);
+			} else {
+				if (posHorizontal > SurvivorCamp.ANCHO_PANTALLA - ANCHO_IMAGEN || posHorizontal < 0)
+					moverEnDireccion();
+				posHorizontal = posHorizontal + direccionX;
+				setPosY(getPosY() + direccionY);
+
+				if (getFrameActual() == 24)
+					setFrameActual((byte) 0);
+				else
+					setFrameActual((byte) (getFrameActual() + 1));
+			}
+		}else if (getEstadoActual().equals(ATACANDO)) {
 			if (getFrameActual() < 16)
 				setFrameActual((byte) (getFrameActual() + 1));
 		} else if (getEstadoActual().equals(MURIENDO) || getEstadoActual().equals(MURIENDO_INCENDIADO)) {

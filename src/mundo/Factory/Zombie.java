@@ -40,6 +40,7 @@ public abstract class Zombie extends Enemigo {
 	 * caracteres que representan el estado Caminando del zombie
 	 */
 	public static final String CAMINANDO = "caminando";
+  public static final String CAMINANDODECORADO = "caminandoDecorado";
 	/**
 	 * caracteres que representan el estado Muriendo del zombie
 	 */

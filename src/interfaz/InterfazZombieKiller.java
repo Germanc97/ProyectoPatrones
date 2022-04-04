@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
 
 import hilo.HiloSonido;
 import interfaz.Facade.CheckFacade;
+import interfaz.Memento.Caretaker;
+import interfaz.Memento.Originator;
 import mundo.NombreInvalidoException;
 import mundo.Puntaje;
 import mundo.Builder.ArmaDeFuego;
@@ -70,6 +72,8 @@ public class InterfazZombieKiller extends JFrame {
 	 */
 	private Cursor cursorCuchillo;
 
+  private Caretaker caretaker = new Caretaker();
+  private Originator originator = new Originator();
 	/**
 	 * Constructor de la clase principal del juego Aqu� se inicializan todos los
 	 * componentes necesarios para empezar a jugar
@@ -186,9 +190,14 @@ public class InterfazZombieKiller extends JFrame {
 	public void cargarJuego() {
 		try {
 			Puntaje actuales = campo.getRaizPuntajes();
-			SurvivorCamp partida = campo.cargarPartida();
+			//SurvivorCamp partida = campo.cargarPartida();
+      // *** Aqui aplico mamanto ***
+      originator.restaurar(caretaker.getMemento(0));
+      // *************************
 			campo.setEstadoJuego(SurvivorCamp.SIN_PARTIDA);
-			campo = partida;
+			//campo = partida;
+      System.out.println(originator.getEstado());
+      campo = originator.getEstado();
 			campo.actualizarPuntajes(actuales);
 			panelCampo.actualizarMatador(campo.getPersonaje());
 			panelCampo.actualizarChombis(campo.getZombNodoLejano());
@@ -217,9 +226,13 @@ public class InterfazZombieKiller extends JFrame {
 	 */
 	public void guardarJuego() {
 		try {
-			campo.guardarPartida();
+      originator.setEstado(campo);
+      caretaker.addMemento(originator.guardar());
+			//campo.guardarPartida();
+      System.out.println("Guardando Partida");
 			JOptionPane.showMessageDialog(this, "Partida Guardada");
-		} catch (IOException e) {
+		} catch (Exception e) {
+      System.out.println("Error");
 			JOptionPane.showMessageDialog(this, e.getMessage());
 		}
 	}
